@@ -30,10 +30,40 @@
   }
 }
 
-/* For data picker */
-.rdp {
-  --rdp-cell-size: 32px !important;
+/* For date picker */
+.rdp-root {
+  --rdp-day-width: 32px !important;
+  --rdp-day-height: 32px !important;
+  --rdp-day_button-width: 32px !important;
+  --rdp-day_button-height: 32px !important;
+  --rdp-day_button-border-radius: 50% !important;
   --rdp-accent-color: theme("colors.accent.500") !important;
   --rdp-background-color: theme("colors.accent.600") !important;
-  margin: 0 !important;
+}
+.rdp-day_disabled:hover {
+  background-color: transparent !important;
+  cursor: not-allowed !important;
+  color: inherit !important;
+  box-shadow: none !important;
+}
+
+.rdp-day_button:hover {
+  background-color: theme("colors.accent.500") !important;
+  color: theme("colors.accent.50") !important;
+}
+
+.rdp-selected {
+  background-color: theme("colors.accent.500") !important;
+  border-radius: 50% !important;
+  color: theme("colors.accent.50") !important;
+}
+
+.rdp-dropdown {
+  color: theme("colors.accent.50") !important;
+  background-color: theme("colors.primary.950") !important;
+  border: 3px theme("colors.accent.500") solid !important;
+}
+
+.rdp-range_middle {
+  background-color: blue;
 }

@@ -1,7 +1,12 @@
 import TextExpander from "@/app/_components/TextExpander";
-import { getCabin, getCabins } from "@/app/_lib/data-service";
+import { getCabin, getCabins, getSettings } from "@/app/_lib/data-service";
+import ReservationForm from "@/starter/components/ReservationForm";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
+import dynamic from "next/dynamic";
 import Image from "next/image";
+const DateSelector = dynamic(() => import("@/app/_components/DateSelector"), {
+  ssr: false,
+});
 
 export async function generateMetadata({ params }) {
   const { name } = await getCabin(params.cabinId);
@@ -15,6 +20,8 @@ export async function generateStaticParams() {
 
   return ids;
 }
+
+export const revalidate = 86400;
 
 // PLACEHOLDER DATA
 const cabin = {
@@ -31,6 +38,7 @@ const cabin = {
 
 export default async function Page({ params }) {
   const cabin = await getCabin(params.cabinId);
+  const { minBookingLength, maxBookingLength } = await getSettings();
 
   const { id, name, maxCapacity, regularPrice, discount, image, description } =
     cabin;
@@ -82,9 +90,16 @@ export default async function Page({ params }) {
       </div>
 
       <div>
-        <h2 className="text-5xl font-semibold text-center">
-          Reserve today. Pay on arrival.
+        <h2 className="text-5xl font-semibold text-center text-accent-400 mb-10">
+          Reserve {name} today. Pay on arrival.
         </h2>
+      </div>
+      <div className="grid grid-cols-2 border border-primary-800 min-h-[400px]">
+        <DateSelector
+          minBookingLength={minBookingLength}
+          maxBookingLength={maxBookingLength}
+        />
+        <ReservationForm />
       </div>
     </div>
   );
