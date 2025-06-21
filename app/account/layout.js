@@ -1,12 +1,12 @@
-import SideNavigation from "@/starter/components/SideNavigation";
+import { Suspense } from "react";
+import SideNavigation from "../_components/SideNavigation";
+import Spinner from "../_components/Spinner";
 
 export default function Layout({ children }) {
   return (
-    <div className="grid grid-cols-[16rem_1fr] h-full gap-12">
-      <div>
-        <SideNavigation />
-      </div>
-      <div>{children}</div>
+    <div className="h-full grid grid-cols-[16rem_1fr]">
+      <SideNavigation />
+      <div className=" mx-auto w-full px-8 py-12">{children}</div>
     </div>
   );
 }

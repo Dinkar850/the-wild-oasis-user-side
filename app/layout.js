@@ -3,6 +3,8 @@ import "@/app/_styles/globals.css";
 import { Josefin_Sans } from "next/font/google";
 
 import Header from "@/app/_components/Header";
+import { ReservationProvider } from "./_components/ReservationContext";
+import { auth } from "./_lib/auth";
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],
@@ -18,16 +20,20 @@ export const metadata = {
     "Luxurious cabin hotel, located in the heart of the Italian Dolomites, surrounded by beautiful mountains and dark forests",
 };
 
-export default function Layout({ children }) {
+export default async function Layout({ children }) {
   return (
     <html lang="en">
       <body
         className={` ${josefin.className} antialiased  bg-primary-950 text-primary-50 min-h-screen flex flex-col`}
       >
         <Header />
-        <div className="flex-1 px-8 py-12 grid">
-          <main className="max-w-7xl  mx-auto w-full">{children}</main>
-        </div>
+
+        <main
+          className="overflow-auto"
+          style={{ height: "calc(100vh - 101px)" }}
+        >
+          <ReservationProvider>{children}</ReservationProvider>
+        </main>
       </body>
     </html>
   );

@@ -30,8 +30,8 @@ const navLinks = [
 function SideNavigation() {
   const pathname = usePathname(); //for highlighting the navLink we are at, using a hook means the cmponent needs to be a CC, changes as you click it
   return (
-    <nav className="border-r border-primary-900">
-      <ul className="flex flex-col gap-2 h-full text-lg">
+    <nav className="border-r border-primary-900 flex flex-col min-h-full justify-between py-2">
+      <ul className="flex flex-col gap-2 text-lg h-full">
         {navLinks.map((link) => (
           <li key={link.name}>
             <Link
@@ -45,11 +45,10 @@ function SideNavigation() {
             </Link>
           </li>
         ))}
-
-        <li className="mt-auto">
-          <SignOutButton />
-        </li>
       </ul>
+      <div className="mt-4">
+        <SignOutButton />
+      </div>
     </nav>
   );
 }

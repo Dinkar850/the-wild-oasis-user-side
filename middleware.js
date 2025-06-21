@@ -10,7 +10,7 @@
 // };
 
 import { auth } from "@/app/_lib/auth";
-export const middleware = auth; //auth acts as a middleware
+export const middleware = auth; //auth acts as a middleware function (auth is a function only)
 
 export const config = {
   matcher: ["/account"],

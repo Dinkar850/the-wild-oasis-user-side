@@ -1,4 +1,8 @@
-import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
+import {
+  EyeSlashIcon,
+  MapPinIcon,
+  UsersIcon,
+} from "@/app/node_modules/@heroicons/react/24/solid";
 
 // PLACEHOLDER DATA
 const cabin = {
