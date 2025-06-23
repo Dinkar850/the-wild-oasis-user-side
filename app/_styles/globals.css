@@ -30,6 +30,18 @@
   }
 }
 
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: theme("colors.accent.500");
+    border-radius: 12px;
+  }
+}
+
 /* For date picker */
 .rdp-root {
   --rdp-day-width: 32px !important;

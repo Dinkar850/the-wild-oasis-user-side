@@ -4,7 +4,6 @@ import { Josefin_Sans } from "next/font/google";
 
 import Header from "@/app/_components/Header";
 import { ReservationProvider } from "./_components/ReservationContext";
-import { auth } from "./_lib/auth";
 
 const josefin = Josefin_Sans({
   subsets: ["latin"],

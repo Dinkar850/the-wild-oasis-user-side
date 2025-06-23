@@ -1,3 +1,4 @@
+import CredentialsForm from "../_components/CredentialsForm";
 import SignInButton from "../_components/SignInButton";
 
 export const metadata = {

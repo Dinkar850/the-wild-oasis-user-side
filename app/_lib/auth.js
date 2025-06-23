@@ -9,6 +9,7 @@ const authConfig = {
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
     }),
   ],
+
   callbacks: {
     authorized({ auth, request }) {
       return !!auth?.user;
@@ -19,7 +20,7 @@ const authConfig = {
         const existingGuest = await getGuest(user.email);
 
         if (!existingGuest)
-          await createGuest({ email: user.email, fullName: user.name }); //create a new guest if existing guest is dne
+          await createGuest({ email: user.email, fullName: user.name }); //create a new guest if existing guest dne
         return true; //to sign in successfully
       } catch {
         console.error("error");
