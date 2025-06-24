@@ -2,6 +2,11 @@ import FormSubmitButton from "@/app/_components/FormSubmitButton";
 import { updateBooking } from "@/app/_lib/actions";
 import { getBooking } from "@/app/_lib/data-service";
 
+export function generateMetadata({ params }) {
+  const reservationId = params.editId;
+  return { title: `Reservation ${reservationId}` };
+}
+
 export default async function Page({ params }) {
   // CHANGE
   const reservationId = params.editId;
