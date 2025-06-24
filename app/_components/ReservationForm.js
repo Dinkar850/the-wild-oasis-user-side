@@ -5,15 +5,18 @@ import { useReservation } from "./ReservationContext";
 import { Stardos_Stencil } from "next/font/google";
 import { createBooking } from "../_lib/actions";
 import FormSubmitButton from "./FormSubmitButton";
+import { setUTCStartOrEndOfDay } from "../_utils/helper";
 
 function ReservationForm({ cabin, user }) {
   // CHANGE
   const { maxCapacity, regularPrice, discount, id } = cabin;
   const { range, resetRange } = useReservation();
-  const startDate = range.from;
-  const endDate = range.to;
+  const startDate = range.from ? setUTCStartOrEndOfDay(range.from) : null;
+  const endDate = range.to ? setUTCStartOrEndOfDay(range.to) : null;
   const numNights = differenceInDays(endDate, startDate);
   const cabinPrice = numNights * (regularPrice - discount);
+  console.log("startDate: ", startDate);
+  console.log("endDate: ", endDate);
 
   const bookingData = {
     startDate,

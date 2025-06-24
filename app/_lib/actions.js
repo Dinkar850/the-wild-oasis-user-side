@@ -29,8 +29,8 @@ export async function updateProfile(formData) {
     .eq("id", session.user.guestId);
 
   if (error) throw new Error("Guest could not be updated");
-  revalidatePath("account/profile");
-  redirect("account/profile");
+  revalidatePath("/account/profile");
+  redirect("/account/profile");
 }
 
 export async function createBooking(bookingData, formData) {
