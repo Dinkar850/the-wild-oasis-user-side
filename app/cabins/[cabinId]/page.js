@@ -1,7 +1,7 @@
 import Cabin from "@/app/_components/Cabin";
 import Reservation from "@/app/_components/Reservation";
 import { getCabin, getCabins } from "@/app/_lib/data-service";
-import Spinner from "@/starter/components/Spinner";
+import Spinner from "@/app/_components/Spinner";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 const DateSelector = dynamic(() => import("@/app/_components/DateSelector"), {
