@@ -15,3 +15,4 @@ export const middleware = auth; //auth acts as a middleware function (auth is a 
 export const config = {
   matcher: ["/account"],
 };
+//updated
