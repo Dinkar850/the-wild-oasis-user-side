@@ -13,13 +13,13 @@ export default async function Page() {
   const bookings = await getBookings(session.user.guestId);
 
   return (
-    <>
-      <h2 className="font-semibold text-2xl text-accent-400 mb-7">
+    <div className="px-4 sm:px-8 py-8">
+      <h2 className="font-semibold text-xl sm:text-2xl text-accent-400 mb-6 sm:mb-7">
         Your reservations
       </h2>
 
       {bookings.length === 0 ? (
-        <p className="text-lg">
+        <p className="text-base sm:text-lg">
           You have no reservations yet. Check out our{" "}
           <a className="underline text-accent-500" href="/cabins">
             luxury cabins &rarr;
@@ -28,6 +28,6 @@ export default async function Page() {
       ) : (
         <ReservationList bookings={bookings} />
       )}
-    </>
+    </div>
   );
 }

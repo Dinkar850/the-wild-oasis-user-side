@@ -11,11 +11,11 @@ export const metadata = {
 export default function Page({ searchParams }) {
   const filter = searchParams?.capacity ?? "all";
   return (
-    <div className="px-8 py-12">
-      <h1 className="text-4xl mb-5 text-accent-400 font-medium">
+    <div className="px-4 sm:px-8 py-8 sm:py-12">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-5 text-accent-400 font-medium">
         Our Luxury Cabins
       </h1>
-      <p className="text-primary-200 text-lg mb-10">
+      <p className="text-primary-200 text-base sm:text-lg mb-6 sm:mb-10">
         Cozy yet luxurious cabins, located right in the heart of the Italian
         Dolomites. Imagine waking up to beautiful mountain views, spending your
         days exploring the dark forests around, or just relaxing in your private
@@ -24,7 +24,7 @@ export default function Page({ searchParams }) {
         Welcome to paradise.
       </p>
 
-      <div className="flex justify-end mb-8">
+      <div className="flex justify-end mb-6 sm:mb-8">
         <Filter />
       </div>
 
